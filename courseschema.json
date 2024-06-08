@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": ["msc", "bsc"]
+    },
+    "startingMonths": {
+      "type": "array",
+      "minLength": 1
+    },
+    "duration": {
+      "type": "object",
+      "properties": {
+        "fullTime": {
+          "type": "array"
+        },
+        "partTime": {
+          "type": ["array", "null"]
+        },
+        "foundation": {
+          "type": ["array", "null"]
+        }
+      },
+      "required": [
+        "fullTime",
+        "partTime",
+        "foundation"
+      ]
+    },
+    "location": {
+      "type": ["string", "null"]
+    },
+    "fees": {
+      "type": "object",
+      "properties": {
+        "uk": {
+          "type": "object",
+          "properties": {
+            "fullTime": {
+              "type": "number"
+            },
+            "partTime": {
+              "type": ["number", "null"]
+            },
+            "foundation": {
+              "type": ["number", "null"]
+            }
+          },
+          "required": [
+            "fullTime"
+          ]
+        },
+        "international": {
+          "type": "object",
+          "properties": {
+            "fullTime": {
+              "type": "number"
+            },
+            "partTime": {
+              "type": ["number", "null"]
+            },
+            "foundation": {
+              "type": ["number", "null"]
+            }
+          },
+          "required": [
+            "fullTime"
+          ]
+        }
+      },
+      "required": [
+        "uk",
+        "international"
+      ]
+    },
+    "entryRequirements": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "contactInfo": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "required": [
+          "name",
+          "email",
+          "phone"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "social": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "required": [
+          "name",
+          "link"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "image",
+    "description",
+    "level",
+    "startingMonths",
+    "duration",
+    "fees",
+    "entryRequirements",
+    "contactInfo",
+    "social"
+  ]
+}
