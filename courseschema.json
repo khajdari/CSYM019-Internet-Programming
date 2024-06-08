@@ -14,7 +14,7 @@
     },
     "level": {
       "type": "string",
-      "enum": ["msc", "bsc"]
+      "enum": ["msc", "bsc", "udg"]
     },
     "startingMonths": {
       "type": "array",
