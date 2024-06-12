@@ -2,8 +2,8 @@
   {
     "name": "Accounting and Finance BSc (Hons)",
     "image": "https://www.northampton.ac.uk/wp-content/uploads/2023/04/three-students-end-of-book-shelf-400x400.jpg",
-    "description": "Our MSc Accounting and Finance (Top-up) aims to extend and enhance the understanding and competence gained via professional qualifications and to enhance the ability of students to think strategically about management and organisational change within accounting and finance.This programme is designed for AIA, ACA, ACCA, CIMA, ICAP or CPA Australia graduates and provides a means to support the continuing professional and personal needs of accounting practitioners.",
-    "level": "msc",
+    "description": "Accounting and Finance BSc provides you with the skills and knowledge to take on any role within this field of work after graduation.",
+    "level": "udg",
     "startingMonths": [9, 10],
     "duration": {
       "fullTime": [12, 12],
@@ -37,7 +37,7 @@
   {
     "name": "Advertising & Digital Marketing BA (Hons)",
     "image": "https://www.northampton.ac.uk/wp-content/uploads/2023/12/three-students-booth-library-400x400.jpg",
-    "description": "This is an exciting time to enter the marketing communications industry as advertisers develop campaigns for an increasingly complex and interesting media landscape. Throughout this Advertising and Digital Marketing Degree, you will have the opportunity to work on a wide range of digital platforms and traditional advertising media as you plan and create real campaigns. The degree culminates in a pitch to a leading company in the advertising industry, providing practical preparation for work in advertising and digital marketing roles.\n\nOur Advertising and Digital Marketing Degree suits those interested in creativity, tech and business with recent students working at companies such as Google, Disney, YouTube, The Financial Times, MediaCom, Next, Superdrug, Sainsburys, Publicis, Bauer Media and WPP.",
+    "description": "Advertising & Digital Marketing BA (Hons) teaches you the fundamentals of Digital Marketing and gives you real experiences.",
     "level": "udg",
     "startingMonths": [9],
     "duration": {
@@ -69,5 +69,38 @@
     "social": [
       {"name": "instagram", "link": "https://www.instagram.com/mkt_adv_digital_uon/"}
     ]
+  },
+  {
+    "name": "Architectural Technology (Top-Up) BSc (Hons)",
+    "image": "https://www.northampton.ac.uk/wp-content/uploads/2023/07/architectural-building-model-400x400.jpg",
+    "description": "Build upon project management, design and technical skills and develop knowledge of the industry and legislation, while experiencing realistic projects.",
+    "level": "udg",
+    "startingMonths": [9],
+    "duration": {
+      "fullTime": [12, 30],
+      "partTime": [24, 24],
+      "foundation": null
+    },
+    "location": "Waterside",
+    "fees": {
+      "uk": {
+        "fullTime": 9250,
+        "partTime": 1540,
+        "foundation": null
+      },
+      "international": {
+        "fullTime": 16500,
+        "partTime": null,
+        "foundation": null
+      }
+    },
+    "entryRequirements": [
+      "IELTS 6.0 (or equivalent)"
+    ],
+    "contactInfo": [
+      {"name": "UK/EU Students enquiries", "email": "study@northampton.ac.uk", "phone": "0300 303 2772"},
+      {"name": "International Students enquiries", "email": "international@northampton.ac.uk", "phone": "+44 (0)1604 893981"}
+    ],
+    "social": []
   }
 ]
