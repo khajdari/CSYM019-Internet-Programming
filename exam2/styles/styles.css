@@ -1,0 +1,27 @@
+.app-container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.page-header {
+	text-align: center;
+}
+.logo {
+	max-width: 100px;
+	border-radius: 4px;
+}
+.replicate-rows-wrapper {
+	margin: 5px 0;
+	border: 1px solid gray;
+	padding: 5px 0;
+	border-radius: 8px;
+
+}
+.replicate-rows-wrapper .item-row { margin: 5px 0;}
+.replicate-rows-wrapper .item-row { margin: 5px 0;}
+.replicate-rows-wrapper .item-row .add-new-btn { display: none;}
+.replicate-rows-wrapper .item-row:last-child .add-new-btn { display: block;}
+
+.nav-menu {
+	margin: 20px 0;
+}
