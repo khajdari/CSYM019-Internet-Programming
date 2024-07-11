@@ -7,7 +7,7 @@ if(isLoggedIn()) {
 ?>
 <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
-    <a class="navbar-brand">
+    <a class="navbar-brand" href="/pages/home.php">
         <svg viewBox="0 0 164 54" class="logo" xmlns="http://www.w3.org/2000/svg">
             <g fill="#fff" stroke="none">
                 <path d="m21.82 34.4-10.76-15.99h-11.06v31.97h11.06v-15.98l10.76 15.98h11.37v-31.97h-11.37z"></path>
