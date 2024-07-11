@@ -1,11 +1,14 @@
 <?php
-
+/*
+ *  Db class, encapsulates the functionality for the database integration for reusability
+ */
 class Db {
     protected  $servername = "127.0.0.1";
     protected  $dbUsername = "root";
     protected  $dbPassword = "";
     protected  $dbName = "university";
     public $conn;
+    public $lastInsertedId;
 
     public function __construct()
     {
@@ -14,6 +17,7 @@ class Db {
 
     public function sqlExec($query) {
         $result = $this->conn->query($query);
+        $this->lastInsertedId = $this->conn->insert_id;
         $response = array();
 
         if(is_bool($result)) {
@@ -27,16 +31,7 @@ class Db {
         }
         return $response;
     }
-}
-function isLoggedIn() {
-    return isset($_SESSION['user_id']);
-}
 
-function protectedpage() {
-    if(!isLoggedIn()) {
-        header("Location: login.php");
-        die();
-    }
 }
 
 

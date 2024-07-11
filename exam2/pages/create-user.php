@@ -1,10 +1,10 @@
 <?php
-	session_start(); 
-	include_once('../helpers/db.php'); 
+	session_start();
+    include_once('../helpers/auth.php');
+	include_once('../config/db.php');
 	protectedpage();
 ?>
-<?php include_once("./../shared/header.php"); ?>
-<?php include_once("./../shared/navbar.php"); ?>
+
 
 <?php
     $conn = new Db();
@@ -23,21 +23,17 @@
 		$resp = $conn->sqlExec($query);
 		if($resp) {
 			header("Location: home.php");
-		} else {
-			
 		}
-		
 	}
 ?>
+<?php include_once("./../shared/header.php"); ?>
+<?php include_once("./../shared/navbar.php"); ?>
 <section class="app-container">
-    <h2 class="page-header">
-        <i class="fa-solid fa-user"></i>
-        Create new User
-    </h2>
     <?php include_once("./../shared/navigation.php"); ?>
 	<form method="POST"
           id="create-user-form"
           action="create-user.php"
+          class="custom-form"
           onsubmit="onCreateUserSubmit(event)"
     >
         <div class="alert alert-danger" role="alert" hidden>
@@ -59,7 +55,7 @@
 	    <label>Repeat password</label>
 	    <input type="password" name="password_repeat" class="form-control" required>
 	  </div>
-	  <button type="SUBMIT-FORM" class="btn btn-primary">Save</button>
+	  <button type="SUBMIT-FORM" class="btn btn-primary save-button">Save</button>
 	</form>
 </section>
 

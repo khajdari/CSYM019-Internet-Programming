@@ -1,12 +1,9 @@
 <?php
-	session_start(); 
-	include_once('../helpers/db.php'); 
+	session_start();
+    include_once('../helpers/auth.php');
+	include_once('../config/db.php');
 	protectedpage();
-?>
-<?php include_once("./../shared/header.php"); ?>
-<?php include_once("./../shared/navbar.php"); ?>
 
-<?php
     $conn = new Db();
     if(isset($_POST['name'])) {
 		$name = $_POST['name'];
@@ -24,20 +21,18 @@
 		$resp = $conn->sqlExec($query);
 		if($resp) {
 			header("Location: home.php");
-		} else {
-			
 		}
-		
 	}
 ?>
 
 
-
+<?php include_once("./../shared/header.php"); ?>
+<?php include_once("./../shared/navbar.php"); ?>
 <section class="app-container">
     <?php include_once("./../shared/navigation.php"); ?>
 	<form method="POST"
           id="create-module-form"
-          class="create-module-form"
+          class="create-module-form custom-form"
           action="create-module.php"
     >
 	  <div class="form-group">
@@ -61,7 +56,7 @@
 	    <input type="text" name="code" class="form-control" required />
 	  </div>
 
-	  <button type="SUBMIT-FORM" class="btn btn-primary">Save</button>
+	  <button type="SUBMIT-FORM" class="btn btn-primary save-button">Save</button>
 	</form>
 </section>
 

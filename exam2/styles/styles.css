@@ -1,8 +1,65 @@
+*,
+*:before,
+*:after {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	box-sizing: inherit;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#main {
+	height: 100%;
+	overflow: auto;
+}
+
 .app-container {
-	max-width: 900px;
+	max-width: 1100px;
 	margin: 0 auto;
 	padding: 20px 0;
 }
+
+.actions-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.navbar {
+	background-color: rgba(0, 0, 0, .8);
+}
+
+.logo {
+	height: 60px;
+}
+
+.user-name {
+	color: white;
+}
+
+.custom-form {
+	background-color: white;
+	padding: 28px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 12px;
+	border-radius: 12px;
+	box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.table-hidden { display: none }
+
 .page-header {
 	text-align: center;
 }
@@ -23,5 +80,86 @@
 .replicate-rows-wrapper .item-row:last-child .add-new-btn { display: block;}
 
 .nav-menu {
-	margin: 20px 0;
+	margin-bottom: 20px;
+}
+
+.program-details {
+	outline: 1px solid gray;
+	padding: 8px;
+	border-radius: 8px;
+	font-size: 18px;
+}
+.program-details .info-row-one-line {
+	text-align: center;
+	margin-bottom: 20px;
+}
+.program-details .info-row-one-line .logo {
+	height: 250px;
+	aspect-ratio: auto;
+	max-width: unset;
+}
+.program-details .info-row {
+	margin-bottom: 20px;
+	display: flex;
+	gap: 50px;
+}
+.program-details .info-row-item {
+	width: 50%;
+}
+.program-details .info-row-item--left {
+	text-align: right;
+	font-weight: bold;
+}
+.program-details .info-row-item--right {
+	text-align: left;
+}
+.program-details .module {
+	margin-bottom: 5px;
+	outline: 1px solid gray;
+	border-radius: 8px;
+}
+.program-details .social-media-link img {
+	width: 25px;
+	height: 25px;
+}
+.program-details .social-media-link {
+	display: inline-block;
+}
+.program-details .module .info-row {
+	margin-bottom: 0;
+}
+
+.program-details .faq-element {
+	padding: 5px 0;
+	outline: 1px solid gray;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+.program-details .faq-element .faq-question {
+	font-weight: bold;
+	text-align: center;
+}
+.program-details .faq-element .faq-answer {
+	font-weight: normal;
+	font-size: 14px;
+	text-align: center;
+	padding: 0 5px;
+}
+#reports-container canvas {
+	margin-bottom: 50px;
+}
+
+.save-button {
+	margin: auto;
+	min-width: 50%;
+}
+
+.no-data-container {
+	margin: 24px auto;
+	max-width: 900px;
+}
+
+.modules-wrapper {
+	max-height: 500px;
+	overflow-y: auto;
 }

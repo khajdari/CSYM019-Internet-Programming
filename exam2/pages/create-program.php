@@ -1,20 +1,21 @@
 <?php
 	session_start();
-    include_once('../helpers/db.php');
+    include_once('../helpers/auth.php');
+    include_once('../helpers/social-media-collection.php');
+    include_once('../config/db.php');
+    include_once('../services/DataService.php');
     protectedpage();
-?>
-<?php include_once("./../shared/header.php"); ?>
-<?php include_once("./../shared/navbar.php"); ?>
 
-<?php
     $conn = new Db();
-    $modules = $conn->sqlExec("SELECT * FROM modules;");
+    $dataService = new DataService($conn);
+    $modules = $dataService->getAllModules();
 
     if(isset($_POST['name'])) {
 		$name = $_POST['name'];
+		$degree = $_POST['degree'];
 		$duration_full_time = $_POST['duration_full_time'];
 		$duration_part_time = $_POST['duration_part_time'];
-		$location = $_POST['location'];
+        $highlights = $_POST['highlights'];
 		$starting_months = $_POST['starting_months'];
 		$content = $_POST['content'];
 		$logo_url = $_POST['logo_url'];
@@ -25,97 +26,38 @@
         $faqs = $_POST['faqs'];
         $requirements = $_POST['requirements'];
 
-		$query = "
-                INSERT INTO program (name, duration_full_time, duration_part_time, location, starting_months, content, logo_url, facilities, social_info)
-                VALUES 
-                ('".$name."', '".$duration_full_time."', '".$duration_part_time."', '".$location."', '".$starting_months."', '".$content."', '".$logo_url."', '".$facilities."', '".$social_info."')
-		";
 
-		$programResp = $conn->sqlExec($query);
-        $programId =$conn->conn->insert_id;
-        $modulesResp = true;
-        $feesInsertRes = true;
-        $faqsInsertRes = true;
-        $requirementsRes = true;
+        $programSaved = $dataService->createProgram(
+                $name,
+                $degree,
+                $duration_full_time,
+                $duration_part_time,
+                $highlights,
+                $starting_months,
+                $content,
+                $logo_url,
+                $facilities,
+                $social_info,
+                $modulesReq,
+                $fees,
+                $faqs,
+                $requirements
+        );
 
-        if($modulesReq) {
-            $prodramModulesQuery = '
-            INSERT INTO program_modules (program_id, module_id)
-            VALUES';
-
-            foreach ($modulesReq as $key => $value) {
-                $prodramModulesQuery .= "(".$programId.", ".$value.")";
-
-                if($key + 1 < count($modules)) {
-                    $prodramModulesQuery .= ",";
-                }
-            }
-            error_log($prodramModulesQuery);
-            $modulesResp = $conn->sqlExec($prodramModulesQuery);
-        }
-
-        if($fees) {
-            $insertRows = [];
-            foreach ($fees as $key => $value) {
-                $location = $value['location'];
-                $type = $value['type'];
-                $pounds = $value['pounds'];
-                array_push($insertRows, "($programId, '$location', '$type', $pounds)");
-            }
-            $insertFeesQuery = '
-                INSERT INTO fees (program_id, location, type, pounds)
-                VALUES '.implode(', ', $insertRows).'
-            ';
-            error_log($insertFeesQuery);
-            $feesInsertRes = $conn->sqlExec($insertFeesQuery);
-        }
-
-        if($faqs) {
-            $insertRows = [];
-            foreach ($faqs as $key => $value) {
-                $question = $value['question'];
-                $answer = $value['answer'];
-
-                array_push($insertRows, "($programId, '$question', '$answer')");
-            }
-            $insertFaqQuery = '
-                INSERT INTO faqs (program_id, question, answer)
-                VALUES '.implode(', ', $insertRows).'
-            ';
-
-            $faqsInsertRes = $conn->sqlExec($insertFaqQuery);
-        }
-
-        if($requirements) {
-//            $insertRows = [];
-//            foreach ($requirements as $key ) {
-//                $requirement = $key;
-//
-//
-//                array_push($insertRows, "($programId, '$key')");
-//            }
-//            $insertRequirementsQuery = '
-//                INSERT INTO requirements (program_id, type)
-//                VALUES '.implode(', ', $insertRows).'
-//            ';
-//            error_log($insertRequirementsQuery);
-//            $requirementsRes = $conn->sqlExec($insertRequirementsQuery);
-        }
-
-		if($programResp && $modulesResp && $feesInsertRes && $faqsInsertRes && $requirementsRes) {
-			header("Location: home.php");
-		} else {
-			
+		if($programSaved) {
+            header("Location: home.php");
 		}
 		
 	}
 ?>
 
+<?php include_once("./../shared/header.php"); ?>
+<?php include_once("./../shared/navbar.php"); ?>
 <section class="app-container">
     <?php include_once("./../shared/navigation.php"); ?>
 	<form method="POST"
           id="create-program-form"
-          class="create-program-form"
+          class="create-program-form custom-form"
           action="create-program.php"
           onsubmit="onCreateProgramSubmit(event)"
     >
@@ -124,27 +66,41 @@
 	    <input type="text" name="name" class="form-control" required>
 	  </div>
 	  <div class="form-group">
+	    <label>Degree</label>
+          <select name="degree" class="form-control">
+              <option value="msc">Master</option>
+              <option value="bsc">Bachelor</option>
+              <option value="phd">Doctor</option>
+          </select>
+	  </div>
+	  <div class="form-group">
 	    <label>Full Time Duration</label>
 	    <input type="number" name="duration_full_time" class="form-control" min="5" max="100" required>
 	  </div>
 	  <div class="form-group">
 	    <label>Part Time Duration</label>
-	    <input type="number" name="duration_part_time" class="form-control" min="5" max="100" required>
+	    <input type="number" name="duration_part_time" class="form-control" min="5" max="100">
 	  </div>
 	  <div class="form-group">
 	    <label>Modules (Select multiple)</label>
-          <select name="modules[]" class="form-select" multiple>
+          <div class="form-group modules-wrapper">
               <?php
               foreach ($modules as $key => $value) {
-                  echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+                  echo '
+                    <div class="form-check">
+                        <input name="modules[]" class="form-check-input" type="checkbox" value="'.$value['id'].'" id="'.$value['id'].'">
+                        <label class="form-check-label" for="'.$value['id'].'">
+                        '.$value['code'].' -- '.$value['name'].' ('.$value['credits'].' Creds)
+                        </label>
+                    </div>
+                  ';
               }
               ?>
-          </select>
+          </div>
 	  </div>
-
 	  <div class="form-group">
-	    <label>Location</label>
-	    <input type="text" name="location" class="form-control" >
+	    <label>Highlights</label>
+          <textarea name="highlights" class="form-control"></textarea>
 	  </div>
 	  <div class="form-group">
 	    <label>Starting Months</label>
@@ -157,20 +113,27 @@
 	  </div>
 	  <div class="form-group">
 	    <label>Logo url</label>
-	    <input type="text" name="logo_url" class="form-control" required>
+	    <input type="url" name="logo_url" class="form-control" required>
 	  </div>
 	  <div class="form-group">
 	    <label>Facilities</label>
 	    <input type="text" name="facilities" class="form-control" required>
 	  </div>
 	  <input type="hidden" name="social_info" class="social_info" value="" />
+      <label>Social Media</label>
 	  <div class="form-group replicate-rows-wrapper">
 	    <div class="row g-3 item-row">
 		  <div class="col-auto">
-		    <input name="socialMediaName" type="text" class="form-control" placeholder="Social media Name">
+              <select name="socialMediaName" class="form-control">
+                  <?php
+                    foreach (getSocialMediaCollection() as $item){
+                       echo "<option value='{$item}'>{$item}</option>";
+                    }
+                  ?>
+              </select>
 		  </div>
 		  <div class="col-auto">
-		    <input name="socialMediaLink" type="text" class="form-control" placeholder="Link">
+		    <input name="socialMediaLink" type="url" class="form-control" placeholder="Link">
 		  </div>
 		  <div class="col-auto">
 		    <button type="button" class="btn btn-primary mb-3  fa-solid fa-plus add-new-btn" onclick="addOneSocialMedia(event)">
@@ -178,6 +141,7 @@
 		  </div>
 		</div>
 	  </div>
+      <label>Fees</label>
       <div class="form-group">
             <div class="replicate-rows-wrapper" data-counter="0">
                 <div class="row g-3 item-row">
@@ -186,10 +150,10 @@
                         <input name="fees[0][location]" type="text" class="form-control" placeholder="Leave empty for remote">
                     </div>
                     <div class="col-auto">
-                        <label>Type</label>
-                        <select name="fees[0][type]" class="form-control">
-                            <option value="full-time">Full Time</option>
-                            <option value="part-time">Part Time</option>
+                        <label>Duration</label>
+                        <select name="fees[0][duration]" class="form-control">
+                            <option value="full_time">Full Time</option>
+                            <option value="part_time">Part Time</option>
                         </select>
                     </div>
                     <div class="col-auto">
@@ -203,16 +167,17 @@
                 </div>
             </div>
         </div>
+        <label>FAQs</label>
       <div class="form-group">
           <div class="replicate-rows-wrapper" data-counter="0">
               <div class="row g-3 item-row">
                   <div class="col-auto">
                       <label>FAQ</label>
-                      <input name="faqs[0][question]" type="text" class="form-control" required>
+                      <input name="faqs[0][question]" type="text" class="form-control">
                   </div>
                   <div class="col-auto">
                       <label>Answer</label>
-                      <textarea name="faqs[0][answer]"  class="form-control"  required></textarea>
+                      <textarea name="faqs[0][answer]"  class="form-control"></textarea>
                   </div>
                   <div class="col-auto">
                       <div class="col-auto">
@@ -224,6 +189,7 @@
               </div>
           </div>
       </div>
+        <label>Requirements</label>
         <div class="form-group">
             <div class="replicate-rows-wrapper" data-counter="0">
                 <div class="row g-3 item-row">
@@ -238,7 +204,7 @@
                 </div>
             </div>
         </div>
-        <button type="SUBMIT-FORM" class="btn btn-primary">Save</button>
+        <button type="SUBMIT-FORM" class="btn btn-primary save-button">Save</button>
     </form>
 </section>
 

@@ -1,6 +1,7 @@
 <?php
-	session_start(); 
-	include_once('../helpers/db.php'); 
+	session_start();
+    include_once('../helpers/auth.php');
+	include_once('../config/db.php');
 	protectedpage();
     $conn = new Db();
 
