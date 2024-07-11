@@ -25,13 +25,34 @@
     },
     "entryRequirements": [
       "IELTS 6.5 (or equivalent)"
-    ],
-    "contactInfo": [
-      {"name": "UK/EU Students enquiries", "email": "study@northampton.ac.uk", "phone": "0300 303 2772"},
-      {"name": "International Students enquiries", "email": "international@northampton.ac.uk", "phone": "+44 (0)1604 893981"}
-    ],
-    "social": [
-      {"name": "instagram", "link": "https://www.instagram.com/accfin_uon/"}
+    ]
+  },
+  {
+    "name": "Accounting and Finance MSc",
+    "image": "https://www.northampton.ac.uk/wp-content/uploads/2016/01/four-students-working-course-feature.jpg",
+    "description": "The University of Northampton’s MSc Accounting and Finance course provides you with the essential skills needed for pursuing a high level career in finance across all types of organisations; public and private sector, within industry and commerce, both in the UK and abroad.",
+    "level": "msc",
+    "startingMonths": [9, 10],
+    "duration": {
+      "fullTime": [12, 12],
+      "partTime": null,
+      "foundation": null
+    },
+    "location": null,
+    "fees": {
+      "uk": {
+        "fullTime": 8250,
+        "partTime": null,
+        "foundation": null
+      },
+      "international": {
+        "fullTime": 16995,
+        "partTime": null,
+        "foundation": null
+      }
+    },
+    "entryRequirements": [
+      "IELTS 6.5 (or equivalent)"
     ]
   },
   {
@@ -71,6 +92,34 @@
     ]
   },
   {
+    "name": "International Marketing Strategy MSc",
+    "image": "https://www.northampton.ac.uk/wp-content/uploads/2016/01/three-students-sitting-course-feature.jpg",
+    "description": "The University of Northampton’s MSc International Marketing Strategy degree is specifically designed to provide you with a strong foundation for a successful career in the exciting and fast-paced world of international marketing. The international marketing strategy course also enhances your ability to think strategically about marketing management in an international context.",
+    "level": "msc",
+    "startingMonths": [10, 11],
+    "duration": {
+      "fullTime": [12, 12],
+      "partTime": null,
+      "foundation": null
+    },
+    "location": "Waterside",
+    "fees": {
+      "uk": {
+        "fullTime": 8250,
+        "partTime": null,
+        "foundation": null
+      },
+      "international": {
+        "fullTime": 16995,
+        "partTime": null,
+        "foundation": null
+      }
+    },
+    "entryRequirements": [
+      "ELTS 6.5 overall with a minimum of 6.0 in writing and 5.5 in all other skills"
+    ]
+  },
+  {
     "name": "Architectural Technology (Top-Up) BSc (Hons)",
     "image": "https://www.northampton.ac.uk/wp-content/uploads/2023/07/architectural-building-model-400x400.jpg",
     "description": "Build upon project management, design and technical skills and develop knowledge of the industry and legislation, while experiencing realistic projects.",
@@ -96,11 +145,118 @@
     },
     "entryRequirements": [
       "IELTS 6.0 (or equivalent)"
-    ],
-    "contactInfo": [
-      {"name": "UK/EU Students enquiries", "email": "study@northampton.ac.uk", "phone": "0300 303 2772"},
-      {"name": "International Students enquiries", "email": "international@northampton.ac.uk", "phone": "+44 (0)1604 893981"}
-    ],
-    "social": []
+    ]
+  },
+  {
+    "name": "Biochemistry BSc (Hons)",
+    "image": "https://www.northampton.ac.uk/wp-content/uploads/2022/07/student-lab-laptop-bench-1400x550.jpg",
+    "description": "Biochemistry underpins the very nature of our existence and acquiring skills and knowledge of this subject will help you solve key biological problems.",
+    "level": "bsc",
+    "startingMonths": [9],
+    "duration": {
+      "fullTime": [36, 36],
+      "partTime": [48, 72],
+      "foundation": [48, 48]
+    },
+    "location": "Waterside",
+    "fees": {
+      "uk": {
+        "fullTime": 9250,
+        "partTime": 1540,
+        "foundation": null
+      },
+      "international": {
+        "fullTime": 15200,
+        "partTime": null,
+        "foundation": null
+      }
+    },
+    "entryRequirements": [
+      "IELTS 6.0 (or equivalent)"
+    ]
+  },
+  {
+    "name": "Molecular Medicine MSc",
+    "image": "https://www.northampton.ac.uk/wp-content/uploads/2022/07/student-lab-bench-purple-gloves-1400x550.jpg",
+    "description": "The Molecular Medicine MSc programme supports you to develop your knowledge and understanding and is aimed at individuals with prior knowledge of, or keen interest in, molecular medicine and genetics and genomics.",
+    "level": "msc",
+    "startingMonths": [9],
+    "duration": {
+      "fullTime": [12, 12],
+      "partTime": [36, 36],
+      "foundation": null
+    },
+    "location": "Waterside",
+    "fees": {
+      "uk": {
+        "fullTime": 8250,
+        "partTime": 920,
+        "foundation": null
+      },
+      "international": {
+        "fullTime": 16995,
+        "partTime": null,
+        "foundation": null
+      }
+    },
+    "entryRequirements": [
+      "IELTS 6.5 (or equivalent)"
+    ]
+  },
+  {
+    "name": "Artificial Intelligence and Data Science BSc (Hons)",
+    "image": "https://www.northampton.ac.uk/wp-content/uploads/2024/03/ai-and-computer-science-1400x550.jpg",
+    "description": "Artificial intelligence and data science have a pivotal role in driving a new era of innovation in many fields. This includes computer science, public health, manufacturing, transportation, and many other areas. The BSc Artificial Intelligence and Data Science course at the University of Northampton equips students with degree-level research, design, and programming skills. Graduates in artificial intelligence and data science can then apply these concepts and techniques in the context of real-world industrial and business scenarios. Using a state-of-the-art AI lab, students develop and deploy applied AI solutions individually and as part of a team.",
+    "level": "bsc",
+    "startingMonths": [9],
+    "duration": {
+      "fullTime": [36, 36],
+      "partTime": [48, 72],
+      "foundation": [48, 48]
+    },
+    "location": "Waterside",
+    "fees": {
+      "uk": {
+        "fullTime": 9250,
+        "partTime": 1540,
+        "foundation": 9250
+      },
+      "international": {
+        "fullTime": 15200,
+        "partTime": null,
+        "foundation": 15200
+      }
+    },
+    "entryRequirements": [
+      "BCC at A-Level, DMM at BTEC/Cambridge Technical, (C and above) at T Level"
+    ]
+  },
+  {
+    "name": "Computing (Computer Networks Engineering) MSc",
+    "image": "https://www.northampton.ac.uk/wp-content/uploads/2022/09/three-students-in-front-of-screens-1400x550.jpg",
+    "description": "With the University of Northampton’s Computing (Computer Networks Engineering) MSc course, you will have the opportunity to study computing in great depth. In addition to completing an individual thesis on an area of computer networks engineering that is of particular interest to you, this Computing (Computer Networks Engineering) course will also allow you to develop your research and analytical abilities. This will equip you with all the skills you need to enhance your career prospects further.",
+    "level": "msc",
+    "startingMonths": [9, 13],
+    "duration": {
+      "fullTime": [12, 12],
+      "partTime": [24, 24],
+      "foundation": null
+    },
+    "location": "Waterside",
+    "fees": {
+      "uk": {
+        "fullTime": 8250,
+        "partTime": 920,
+        "foundation": null
+      },
+      "international": {
+        "fullTime": 16995,
+        "partTime": null,
+        "foundation": null
+      }
+    },
+    "entryRequirements": [
+      "IELTS 6.5 (or equivalent)"
+    ]
   }
 ]

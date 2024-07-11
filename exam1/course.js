@@ -178,12 +178,6 @@ const printTable = (items) => {
             <td class="courses-table-body-item">
                 ${item.entryRequirements.join('<br>')}
             </td>
-            <td class="courses-table-body-item">
-                
-            </td>
-             <td class="courses-table-body-item">
-                social.... 
-            </td>
         </tr>
         `;
     });
@@ -198,6 +192,11 @@ async function start() {
     courses = await getCourses();
     rates = await getRates();
     printTable(courses);
+
+    setInterval(async () => {
+        courses = await getCourses();
+        printTable(courses);
+    }, 5000);
 }
 
 /*

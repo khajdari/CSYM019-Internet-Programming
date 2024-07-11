@@ -19,7 +19,6 @@
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    padding: 1rem;
      overflow: hidden;
  }
 .dropdown-row {
@@ -27,14 +26,24 @@
 }
 #courses-table {
     border-collapse: separate;
-    overflow:auto;
-    display:block;
+}
+.table-wrapper {
     max-width: 1200px;
+    overflow: auto;
+    margin: 50px 0;
 }
-.courses-table-header {
-
+#currency-selector {
+    margin: 20px;
+    font-size: 20px;
+    border-radius: 5px;
 }
-.courses-table-header-row {
+.wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
 }
  .courses-table-header-item {
      text-align: center;
