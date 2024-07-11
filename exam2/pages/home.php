@@ -68,7 +68,6 @@
 		      <th scope="col">Name</th>
 		      <th scope="col">Full Time Duration (Months)</th>
 		      <th scope="col">Part Time Duration (Months)</th>
-		      <th scope="col">Location</th>
 		      <th scope="col">Starting Months</th>
 		      <th scope="col"></th>
 		      <th></th>
@@ -94,7 +93,6 @@
 		    				<td>{$programs[$key]['name']}</td>
 		    				<td>{$programs[$key]['duration_full_time']}</td>
 		    				<td>{$programs[$key]['duration_part_time']}</td>
-		    				<td>{$programs[$key]['location']}</td>
 		    				<td>{$programs[$key]['starting_months']}</td>
 		    				<td>
 		    				    <a class='link-opacity-100 link-info link-offset-2'
