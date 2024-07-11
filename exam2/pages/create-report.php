@@ -52,7 +52,7 @@
 <script id="programData" type="application/json"><?php echo json_encode($programs)?></script>
 <?php
 /*
- * 'report.js' is the script where all the Chartjs functionality will take place after
+ * 'report.js' is the script where all the ChartJs functionality will take place after
  * the appropriate data will be passed as JSON on browsers document body element.
  *
  * report.js will do the rest using the Hydration technique!
