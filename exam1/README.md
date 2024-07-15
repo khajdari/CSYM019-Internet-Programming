@@ -1,4 +1,6 @@
-# CSYM019-Internet-Programming
+Kristian Giannis Hajdari
+# Installation Steps
 
-This module focuses on creating client and server side software as well as web applications for the World Wide Web us. It concentrates on the technologies used to allow such software to be designed, implemented and deployed.
-
+1. Install xampp\lampp;
+4. cd into exam1 directory
+6. Run the server: & C:\xampp\php\php.exe -S localhost:8000
